@@ -34,6 +34,11 @@ Helm server is also known as `tiller`. By default, tiller is installed in the cu
 
   $ kubectl config current-context
   cluster.kubernetes-aws.io
+  
+Helm server needs additional privileges for kube-system:default to install packages:
+
+$ kubectl create clusterrolebinding add-on-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:default
+"add-on-cluster-admin" created
 
 Install `tiller`:
 
